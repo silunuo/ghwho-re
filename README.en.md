@@ -4,7 +4,7 @@
 
 Add private notes to GitHub users, right next to their names. Works on Microsoft Edge and Firefox (Manifest V3).
 
-> Available on [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/ghwho-github-%E7%94%A8%E6%88%B7%E5%A4%87%E6%B3%A8/jepafcbloaophnopbognfebnepklfoea). The Firefox version is coming soon; until then, load it from source as described below.
+> Available on [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/ghwho-github-%E7%94%A8%E6%88%B7%E5%A4%87%E6%B3%A8/jepafcbloaophnopbognfebnepklfoea) and [Firefox Add-ons](https://addons.mozilla.org/addon/ghwho-github-%E7%94%A8%E6%88%B7%E5%A4%87%E6%B3%A8/).
 
 ## Features
 
@@ -22,7 +22,7 @@ Add private notes to GitHub users, right next to their names. Works on Microsoft
 ### From the stores
 
 - **Microsoft Edge**: [Get it from Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/ghwho-github-%E7%94%A8%E6%88%B7%E5%A4%87%E6%B3%A8/jepafcbloaophnopbognfebnepklfoea)
-- **Firefox**: coming soon
+- **Firefox**: [Get it from Firefox Add-ons](https://addons.mozilla.org/addon/ghwho-github-%E7%94%A8%E6%88%B7%E5%A4%87%E6%B3%A8/)
 
 ### Load from source (development / preview)
 
