@@ -15,6 +15,7 @@
 - **管理面板**：点击工具栏图标，可以搜索全部备注、编辑删除、手动新增、查看存储用量
 - **备份与迁移**：JSON 导出 / 导入，可在 Edge 与 Firefox 之间迁移
 - **中英文界面**：默认跟随浏览器语言，也可以在扩展面板顶部切换为中文或 English；GitHub 页面上的标签和编辑弹窗会立即同步切换，无需刷新
+- **反馈入口**：扩展面板底部可直接打开 GitHub 反馈表单或商店评分页
 - **隐私**：没有服务器、不发任何网络请求，备注只保存在你自己的浏览器里（开启浏览器同步时随你自己的浏览器账号同步）
 
 ## 安装
@@ -86,6 +87,11 @@
 - 备注文本一律通过 `textContent` 插入页面，不使用 `innerHTML`，备注中写 HTML / 脚本只会原样显示为文字
 - 没有后台脚本，不发起任何网络请求，不收集任何数据
 - 只申请两项权限：`storage`（保存备注）和 `https://github.com/*`（在 GitHub 页面上显示备注）
+
+## 反馈
+
+- **问题和建议**：在 [GitHub Issues](https://github.com/suolk/ghwho/issues/new/choose) 选择「问题反馈」或「功能建议」。扩展面板底部的「反馈问题」会直接打开表单，并自动填好扩展版本和浏览器
+- **打不开 GitHub**：可以在商店评分并留言，[Edge 加载项商店](https://microsoftedge.microsoft.com/addons/detail/ghwho-github-%E7%94%A8%E6%88%B7%E5%A4%87%E6%B3%A8/jepafcbloaophnopbognfebnepklfoea) 或 [Firefox 附加组件商店](https://addons.mozilla.org/addon/ghwho-github-%E7%94%A8%E6%88%B7%E5%A4%87%E6%B3%A8/)；扩展面板底部的「去商店评分」会自动打开对应的商店
 
 ---
 

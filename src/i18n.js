@@ -88,6 +88,12 @@
       'io.imported': '导入完成：{parts}。',
       'io.importFailed': '导入失败：{msg}',
       'io.importHint': '请点击“导入 JSON”选择备份文件。',
+
+      'feedback.issue': '反馈问题',
+      'feedback.issueTitle': '在 GitHub 提交问题或建议。如果打不开 GitHub，可以点「去商店评分」，在商店评论区留言。',
+      'feedback.rate': '去商店评分',
+      'feedback.rateTitleEdge': '在 Microsoft Edge 加载项商店评分和留言',
+      'feedback.rateTitleFirefox': '在 Firefox 附加组件商店评分和留言',
     },
 
     en: {
@@ -164,6 +170,12 @@
       'io.imported': 'Import finished: {parts}.',
       'io.importFailed': 'Import failed: {msg}',
       'io.importHint': 'Click “Import JSON” to choose a backup file.',
+
+      'feedback.issue': 'Report an issue',
+      'feedback.issueTitle': 'Report a bug or suggest a feature on GitHub. If GitHub won’t open, click “Rate in store” and leave a comment there instead.',
+      'feedback.rate': 'Rate in store',
+      'feedback.rateTitleEdge': 'Rate and review on Microsoft Edge Add-ons',
+      'feedback.rateTitleFirefox': 'Rate and review on Firefox Add-ons',
     },
   };
 
