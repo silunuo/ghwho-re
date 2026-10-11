@@ -15,7 +15,7 @@ Add private notes to GitHub users, right next to their names. Works on Microsoft
 - **Manager panel**: click the toolbar icon to search all notes, edit or delete them, add one manually, and see storage usage
 - **Backup & migration**: JSON export / import, also for moving between Edge and Firefox
 - **Chinese / English UI**: follows your browser language by default, and can be switched to 中文 or English at the top of the panel; tags and the editor on open GitHub pages switch instantly without a refresh
-- **Feedback links**: the panel footer opens the GitHub issue form or the store rating page
+- **Feedback links**: the panel footer opens the feedback form or the store rating page
 - **Private**: no server and no network requests. Notes stay in your own browser and sync through your own browser account if browser sync is on
 
 ## Install
@@ -90,8 +90,9 @@ Import also accepts a plain `{ "username": { "note", "updatedAt" } }` object, `{
 
 ## Feedback
 
-- **Bugs and ideas**: open [GitHub Issues](https://github.com/suolk/ghwho/issues/new/choose) and pick "Bug report" or "Feature request". "Report an issue" at the bottom of the panel opens the form with the extension version and browser already filled in
-- **Can't reach GitHub?** Rate and leave a comment on [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/ghwho-github-%E7%94%A8%E6%88%B7%E5%A4%87%E6%B3%A8/jepafcbloaophnopbognfebnepklfoea) or [Firefox Add-ons](https://addons.mozilla.org/addon/ghwho-github-%E7%94%A8%E6%88%B7%E5%A4%87%E6%B3%A8/); "Rate in store" at the bottom of the panel opens the right store for your browser
+- **Feedback form**: [feedback.netcache24.site](https://feedback.netcache24.site/?app=ghwho). It is sent privately to the developer, and no GitHub access is needed. "Report an issue" at the bottom of the panel opens it with the extension version and browser filled in
+- **GitHub Issues**: you can also post a bug report or feature request publicly on [GitHub](https://github.com/suolk/ghwho/issues/new/choose)
+- **Like it?** A rating on [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/ghwho-github-%E7%94%A8%E6%88%B7%E5%A4%87%E6%B3%A8/jepafcbloaophnopbognfebnepklfoea) or [Firefox Add-ons](https://addons.mozilla.org/addon/ghwho-github-%E7%94%A8%E6%88%B7%E5%A4%87%E6%B3%A8/) helps a lot
 
 ---
 

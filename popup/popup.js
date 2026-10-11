@@ -5,7 +5,7 @@
   const { t } = i18n;
 
   const GITHUB_ORIGINS = ['https://github.com/*'];
-  const ISSUE_URL = 'https://github.com/suolk/ghwho/issues/new';
+  const FEEDBACK_URL = 'https://feedback.netcache24.site/';
   const STORE_URLS = {
     edge: 'https://microsoftedge.microsoft.com/addons/detail/ghwho-github-%E7%94%A8%E6%88%B7%E5%A4%87%E6%B3%A8/jepafcbloaophnopbognfebnepklfoea',
     firefox: 'https://addons.mozilla.org/addon/ghwho-github-%E7%94%A8%E6%88%B7%E5%A4%87%E6%B3%A8/',
@@ -379,13 +379,24 @@
     return chrome ? `Chrome ${chrome[1]}` : '';
   }
 
-  // 扩展本身不发送任何东西：这里只是生成链接，用户点开后在 GitHub 上自己决定是否提交
+  let browserName = '';
+
+  // 扩展本身不发送任何东西：这里只是生成链接，用户在反馈页上自己决定是否提交
+  function updateFeedbackLink() {
+    const query = new URLSearchParams({
+      app: 'ghwho',
+      version: api.runtime.getManifest().version,
+      browser: browserName,
+      lang: i18n.getLang() === 'en' ? 'en' : 'zh',
+    });
+    ui.feedbackIssue.href = `${FEEDBACK_URL}?${query}`;
+  }
+
   async function setupFeedback() {
-    const version = api.runtime.getManifest().version;
-    ui.version.textContent = `v${version}`;
+    ui.version.textContent = `v${api.runtime.getManifest().version}`;
     ui.feedbackRate.href = isFirefox ? STORE_URLS.firefox : STORE_URLS.edge;
-    const query = new URLSearchParams({ template: 'bug_report.yml', version, browser: await browserLabel() });
-    ui.feedbackIssue.href = `${ISSUE_URL}?${query}`;
+    browserName = await browserLabel();
+    updateFeedbackLink();
   }
 
   /* ---------------------------------------------------------------- 语言 */
@@ -396,6 +407,7 @@
     ui.lang.value = i18n.getPreference();
     i18n.translateDom();
     ui.feedbackRate.title = t(isFirefox ? 'feedback.rateTitleFirefox' : 'feedback.rateTitleEdge');
+    updateFeedbackLink();
     // 正在编辑时不重绘列表，避免丢掉未保存的输入
     if (!editing) render();
     renderUsage();
