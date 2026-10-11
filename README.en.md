@@ -149,7 +149,7 @@ Builds the Edge and Firefox zips in `dist/` (requires Node.js 18+).
 ### Compatibility
 
 - Edge / Chrome 109+
-- Firefox 140+
+- Firefox 140+ (Firefox for Android 142+)
 
 ## License
 

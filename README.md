@@ -149,7 +149,7 @@ node scripts/pack.mjs
 ### 兼容性
 
 - Edge / Chrome 109+
-- Firefox 140+
+- Firefox 140+（Android 版 Firefox 142+）
 
 ## 许可证
 
