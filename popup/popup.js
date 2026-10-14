@@ -5,6 +5,11 @@
   const { t } = i18n;
 
   const GITHUB_ORIGINS = ['https://github.com/*'];
+  const FEEDBACK_URL = 'https://feedback.netcache24.site/';
+  const STORE_URLS = {
+    edge: 'https://microsoftedge.microsoft.com/addons/detail/ghwho-github-%E7%94%A8%E6%88%B7%E5%A4%87%E6%B3%A8/jepafcbloaophnopbognfebnepklfoea',
+    firefox: 'https://addons.mozilla.org/addon/ghwho-github-%E7%94%A8%E6%88%B7%E5%A4%87%E6%B3%A8/',
+  };
   const isFirefox = typeof api.runtime.getBrowserInfo === 'function';
   const params = new URLSearchParams(location.search);
   const isTab = params.has('tab');
@@ -31,6 +36,9 @@
     importFile: $('import-file'),
     openTab: $('open-tab'),
     lang: $('lang'),
+    version: $('version'),
+    feedbackIssue: $('feedback-issue'),
+    feedbackRate: $('feedback-rate'),
   };
 
   /** @type {Record<string, {note: string, updatedAt: number}>} */
@@ -352,6 +360,45 @@
     window.close();
   });
 
+  /* ---------------------------------------------------------------- 反馈 */
+
+  /* 只取浏览器名和主版本号，填进 GitHub 表单方便排查 */
+  async function browserLabel() {
+    if (isFirefox) {
+      try {
+        const info = await api.runtime.getBrowserInfo();
+        return `${info.name} ${info.version.split('.')[0]}`;
+      } catch {
+        return 'Firefox';
+      }
+    }
+    const ua = navigator.userAgent;
+    const edge = ua.match(/Edg\/(\d+)/);
+    if (edge) return `Edge ${edge[1]}`;
+    const chrome = ua.match(/Chrome\/(\d+)/);
+    return chrome ? `Chrome ${chrome[1]}` : '';
+  }
+
+  let browserName = '';
+
+  // 扩展本身不发送任何东西：这里只是生成链接，用户在反馈页上自己决定是否提交
+  function updateFeedbackLink() {
+    const query = new URLSearchParams({
+      app: 'ghwho',
+      version: api.runtime.getManifest().version,
+      browser: browserName,
+      lang: i18n.getLang() === 'en' ? 'en' : 'zh',
+    });
+    ui.feedbackIssue.href = `${FEEDBACK_URL}?${query}`;
+  }
+
+  async function setupFeedback() {
+    ui.version.textContent = `v${api.runtime.getManifest().version}`;
+    ui.feedbackRate.href = isFirefox ? STORE_URLS.firefox : STORE_URLS.edge;
+    browserName = await browserLabel();
+    updateFeedbackLink();
+  }
+
   /* ---------------------------------------------------------------- 语言 */
 
   function applyLanguage() {
@@ -359,6 +406,8 @@
     document.documentElement.lang = i18n.getLang();
     ui.lang.value = i18n.getPreference();
     i18n.translateDom();
+    ui.feedbackRate.title = t(isFirefox ? 'feedback.rateTitleFirefox' : 'feedback.rateTitleEdge');
+    updateFeedbackLink();
     // 正在编辑时不重绘列表，避免丢掉未保存的输入
     if (!editing) render();
     renderUsage();
@@ -384,6 +433,7 @@
   (async () => {
     await i18n.init();
     applyLanguage();
+    setupFeedback();
     checkPermission();
     await reload();
     if (isTab && location.hash === '#import') {
